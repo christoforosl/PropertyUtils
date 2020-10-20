@@ -30,6 +30,11 @@ public class PropertiesByPrefix {
 		return this;
 	}
 
+	public String getProperty(final String pkey) {
+
+		return getProperty( pkey, false, null );
+
+	}
 	
 	public String getProperty(final String pkey, final String defaultVal) {
 
