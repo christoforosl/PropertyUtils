@@ -4,7 +4,7 @@
     
 	<groupId>netu</groupId>
 	<artifactId>PropertyUtils</artifactId>
-	<version>1.0.1-SNAPSHOT</version>
+	<version>1.0.2-SNAPSHOT</version>
 	
 	<packaging>jar</packaging>
 	<dependencies>
@@ -23,6 +23,20 @@
 				<artifactId>maven-release-plugin</artifactId>
 				<version>3.0.0-M1</version>
 			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-source-plugin</artifactId>
+				<version>3.2.0</version>
+				<executions>
+					<execution>
+						<id>attach-sources</id>
+						<phase>verify</phase>
+						<goals>
+							<goal>jar-no-fork</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
 		</plugins>
 	</build>
   
@@ -30,8 +44,8 @@
 		<connection>scm:git:https://github.com/christoforosl/PropertyUtils.git</connection>
 		<developerConnection>scm:git:https://github.com/christoforosl/PropertyUtils.git</developerConnection>
 		
-	  <tag>HEAD</tag>
-  </scm>
+		<tag>HEAD</tag>
+	</scm>
 	<properties>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>

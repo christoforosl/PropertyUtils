@@ -33,24 +33,33 @@ public class PropertiesByPrefix {
 	
 	public String getProperty(final String pkey, final String defaultVal) {
 
-		String ret = this.getProperty(pkey);
-		if (StringUtils.isBlank(ret)) {
-			ret = defaultVal;
-		}
-		return ret;
+		return getProperty( pkey, false, defaultVal );
 
 	}
-
-	public String getProperty(final String pkey) {
-		final String propertyValue = this.getProperties().getProperty(propertiesPrefix+pkey);
-		return propertyValue == null ? null : propertyValue.trim();
-	}
-
+	
 	public String getMandatoryProperty(final String pkey) {
-		final String ret = this.getProperty(pkey);
-		Validate.notEmpty(ret, "Property \"" + pkey + "\" is missing and it is required!");
+		final String ret = this.getProperty(pkey, true, null);
 		return ret;
 	}
+	
+	public String getProperty(final String pkey , final boolean mandatory, final String defaultVal) {
+		
+		final String propname = propertiesPrefix+pkey;
+		String propertyValue = this.getProperties().getProperty(propname);
+		
+		if(mandatory) {
+			Validate.isTrue ( StringUtils.isNotBlank(propertyValue) , 
+				"Property \"" + pkey + "\" is missing and it is required!");
+		} else {
+			if (StringUtils.isBlank(propertyValue) && StringUtils.isNotBlank(defaultVal)) {
+				propertyValue = defaultVal;
+			}
+		}
+		return propertyValue == null ? null : propertyValue.trim();
+		
+	}
+
+	
 
 	public void setProperties(Properties properties) {
 		this.properties = properties;

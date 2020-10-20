@@ -11,13 +11,17 @@ public class PropertiesByEnvironmentPrefix extends PropertiesByPrefix {
 	
 	public PropertiesByEnvironmentPrefix() {
 		
-		final String prefix = StringUtils.isBlank(System.getProperty(ENVIRONMENT)) ? 
-										System.getProperty(ENVIRONMENT) : 
-										System.getenv(ENVIRONMENT);
+		final String propertySys = System.getProperty(ENVIRONMENT);
+		final String propertyEnv = System.getenv(ENVIRONMENT);
+		
+		final String prefix = StringUtils.isNotBlank(propertySys) ? 
+										propertySys : 
+										propertyEnv;
 		
 		Validate.notEmpty(prefix, "\"ENVIRONMENT\" system property is empty");
 		super.setPropertiesPrefix(prefix);
 	
 	}
+	
 	private static final String ENVIRONMENT = "ENVIRONMENT";
 }
