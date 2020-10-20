@@ -7,26 +7,26 @@ import org.apache.commons.lang.Validate;
 
 /**
  * Java Properties manager, by environment prefix.
- * The properties are retrieved by prefixing them with the "propertiesPrefix" string 
- * 
- * The idea is to have a single file containing the same property with different prefix, for 
- * each environment 
+ * The properties are retrieved by prefixing them with the "propertiesSuffix" string 
+ 
+ The idea is to have a single file containing the same property with different prefix, for 
+ each environment 
  * 
  * @author christoforosl
  * 
  */
 public class PropertiesByPrefix {
 
-	private String propertiesPrefix;
+	private String propertiesSuffix;
 	private String propertiesResourceName;
 	private Properties properties;
 
-	public String getPropertiesPrefix() {
-		return propertiesPrefix;
+	public String getPropertiesSuffix() {
+		return propertiesSuffix;
 	}
 
-	public PropertiesByPrefix setPropertiesPrefix(String propertiesPrefix) {
-		this.propertiesPrefix = propertiesPrefix;
+	public PropertiesByPrefix setPropertiesSuffix(String propertiesPrefix) {
+		this.propertiesSuffix = propertiesPrefix;
 		return this;
 	}
 
@@ -44,12 +44,12 @@ public class PropertiesByPrefix {
 	
 	public String getProperty(final String pkey , final boolean mandatory, final String defaultVal) {
 		
-		final String propname = propertiesPrefix+pkey;
+		final String propname = pkey+"-"+propertiesSuffix;
 		String propertyValue = this.getProperties().getProperty(propname);
 		
 		if(mandatory) {
 			Validate.isTrue ( StringUtils.isNotBlank(propertyValue) , 
-				"Property \"" + pkey + "\" is missing and it is required!");
+				"Property \"" + propname + "\" is missing and it is required!");
 		} else {
 			if (StringUtils.isBlank(propertyValue) && StringUtils.isNotBlank(defaultVal)) {
 				propertyValue = defaultVal;

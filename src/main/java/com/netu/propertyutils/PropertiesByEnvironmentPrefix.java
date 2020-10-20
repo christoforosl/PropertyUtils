@@ -19,7 +19,7 @@ public class PropertiesByEnvironmentPrefix extends PropertiesByPrefix {
 										propertyEnv;
 		
 		Validate.notEmpty(prefix, "\"ENVIRONMENT\" system property is empty");
-		super.setPropertiesPrefix(prefix);
+		super.setPropertiesSuffix(prefix);
 	
 	}
 	
