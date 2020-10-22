@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<actions>
+        <action>
+            <actionName>CUSTOM-InstallToFileRepo</actionName>
+            <displayName>InstallToFileRepo</displayName>
+            <goals>
+                <goal>deploy:deploy-file</goal>
+            </goals>
+            <properties>
+                <url>file:///../mygym-web/repo</url>
+                <file>${project.build.directory}/${project.build.finalName}.jar</file>
+                <groupId>${project.groupId}</groupId>
+                <artifactId>${project.artifactId}</artifactId>
+                <version>${project.version}</version>
+            </properties>
+        </action>
+    </actions>
