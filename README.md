@@ -17,5 +17,8 @@ jdbcurl.driver-PROD=com.mysql.cj.jdbc.Driver
 jdbcurl.driver-PREPROD=com.mysql.cj.jdbc.Driver
 ```
 
-In production, you want to ready the PROD suffixed properties from the file above, so you should define an environmental variable like this:
-```java ... -DENVIROMENT=PROD```
+In production, you want to read the PROD suffixed properties from the file above, so you define an environmental variable like this:
+```java [other command line options] -DENVIROMENT=PROD```
+
+In development, you want to read the DEV suffixed properties from the file above, so you define an environmental variable like this:
+```java [other command line options] -DENVIROMENT=DEV```
