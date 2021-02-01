@@ -6,12 +6,12 @@ Suffix and store properties for multiple environments in a single properties fil
 Example:
 
 ```
-\# example property app.url
+# example property app.url
 app.url-DEV=http://localhost:9002/
 app.url-PROD=http://prod.herokuapp.com/
 app.url-PREPROD=http://preprod.herokuapp.com/
 
-\# example property jdbcurl.driver
+# example property jdbcurl.driver
 jdbcurl.driver-DEV=com.mysql.cj.jdbc.Driver
 jdbcurl.driver-PROD=com.mysql.cj.jdbc.Driver
 jdbcurl.driver-PREPROD=com.mysql.cj.jdbc.Driver
