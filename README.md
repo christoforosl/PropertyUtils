@@ -22,4 +22,5 @@ In production, you want to read the PROD suffixed properties from the file above
 ```java [other command line options] -DENVIRONMENT=PROD```
 
 In development, you want to read the DEV suffixed properties from the file above, so you define an environmental variable like this:
+
 ```java [other command line options] -DENVIRONMENT=DEV```
