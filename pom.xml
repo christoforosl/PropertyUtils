@@ -4,7 +4,7 @@
     
 	<groupId>netu</groupId>
 	<artifactId>PropertyUtils</artifactId>
-	<version>1.0.2-SNAPSHOT</version>
+	<version>1.0.2</version>
 	
 	<packaging>jar</packaging>
 	<dependencies>
@@ -50,4 +50,5 @@
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
 	</properties>
+    <description>Removed -SNAPSHOT , release is 1.0.2</description>
 </project>
